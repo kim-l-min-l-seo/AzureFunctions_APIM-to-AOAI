@@ -5,6 +5,7 @@ from azure.identity import DefaultAzureCredential
 # 변수 설정
 ## APIM
 apim_name = ""
+apim_subscription_key = "" # 이전 단계에서 생성한 APIM 리소스의 구독 키를 입력합니다.
 
 ## Azure AI Search
 aisearch_endpoint = ""
@@ -61,7 +62,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             headers={  
                 'Authorization': f'Bearer {token.token}',  
                 'Content-Type': 'application/json',
-                'Ocp-Apim-Subscription-Key': 'e4ce4e06a5174874be957d48745e9e84'
+                'Ocp-Apim-Subscription-Key': apim_subscription_key
             },  
             json=json_messages  
         ) 
